@@ -1,0 +1,200 @@
+header{
+    color:#d2c6dc;
+    margin: 15px;
+    padding: 15px;
+}
+
+#name2 {
+    color: #d2c6dc;
+    text-decoration: none;
+}
+
+#prenom, #nom {
+    padding: 5px;
+    font-size: 20px;
+    display: inline-block; /*Nécessaire pour que l'élément puisse être transformé, se comporter comme un bloc*/
+    transition: transform 1s ease-in-out;
+}
+
+#prenom:hover{
+    transform: rotate(-180deg);
+}
+#nom:hover {
+    transform: rotate(180deg);
+}
+
+#titre {
+    text-align: center;
+}
+
+@font-face { /*"Ajouter" une police d'écriture*/
+    font-family: Consolas;
+    src: url('FONTS/consola.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: dejavu;
+    src: url('FONTS/DejaVuSerif.ttf') format('truetype');
+}
+
+body {
+    font-family: dejavu;
+    background: linear-gradient(to bottom, #1c152a, #0d0f12); /*Dégradé de x à x couleur*/
+    background-repeat: no-repeat; /*Empêche la répétition du fond*/
+    background-attachment: fixed; /*Le fond reste fixe lors du défilement*/
+    background-size: cover; /*Assure que le dégradé couvre toute la page*/
+}
+
+#about-me {
+    margin: 5%;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: url('CursorQ2.png'), auto;
+    color: #d2c6dc;
+}
+
+#formation {
+    font-weight: normal;
+    margin: 5%;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: url('form.png'), auto;
+    color: #d2c6dc;
+}
+
+#t-formation{
+    font-size: 35px;
+    font-weight: normal;
+}
+
+#bts, #bac{
+    margin-left: 15px;
+    font-weight: normal;
+}
+
+#bts-ex, #bac-ex{
+    margin-left: 30px;
+}
+
+#about-me:hover, #formation:hover {
+    transform: scale(1.05);
+    background: rgb(30, 30, 30);
+}
+
+#about-me:hover #t-about, #formation:hover #t-formation{
+    font-weight: normal;
+    font-family: Consolas;
+    color: rgb(50, 156, 200);
+}
+
+#about-me:hover #t-about::before {
+    font-family: Consolas;
+}
+
+#t-about {
+    font-size: 35px;
+    font-weight: normal; /* Pour enlever le gras */
+}
+
+#p-about {
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+#formation:hover #bts, #formation:hover #bac{
+    font-weight: normal;
+    font-size: 20px;
+    font-family: Consolas;
+    color: #9cdcfe;
+}
+
+#about-me:hover #p-about, #formation:hover #bts-ex, #formation:hover #bac-ex{
+    font-size: 15px;
+    font-family: Consolas;
+    color: rgb(206, 145, 120);
+}
+
+#rs {
+    padding: 50px;
+    text-align: center;
+}
+
+#linkedin, #github, #email {
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+    padding: 50px;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+/* #linkedin:hover, #github:hover, #email:hover {
+    animation: jump 1s ease-in-out infinite;
+} ça fait sauter l'image en prenant en compte la partie transparente*/
+
+@keyframes jump{
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#linkedin img:hover{
+    content: url(linkedin2.png);
+    animation: jump 1s ease-in-out infinite;
+}
+
+#github img:hover{
+    content: url(github2.png);
+    animation: jump 1s ease-in-out infinite;
+}
+
+#email img:hover{
+    content: url(email2.png);
+    animation: jump 1s ease-in-out infinite;
+}
+
+#parent{
+    display: flex;
+    align-items: center; /*Centre la phrase et l'image l'une et l'autre*/
+    justify-content: space-between; /*Envoie les 2 éléments de chaque côté de la page*/
+}
+
+#bas {
+    float: left;
+    width: 250px;
+}
+
+#totop {
+    width: 50px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.top{
+    height: 50px;
+    width: 50px;
+}
+
+.top:hover{
+    content: url(up2.png);
+    animation: jump 1s ease-in-out infinite;
+}
+
+#droits{
+    color: #d2c6dc;
+    font-size: 10px;
+}
