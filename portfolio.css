@@ -1,39 +1,149 @@
+header, #name2, #formation, #about-me, #projet, #exp, #t-formation, 
+#t-about, #t-projet, #t-exp, #droits, #p-bvn {
+    color: #d2c6dc;
+}
+
 header{
-    color:#d2c6dc;
+    background-color: #1c152a2f;
     margin: 15px;
     padding: 15px;
+    position:sticky;
 }
 
 #name2 {
-    color: #d2c6dc;
     text-decoration: none;
 }
 
-#prenom, #nom {
+#p-bvn{
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bvn{
+    background-color: rgba(82, 85, 84, 0.253);
+    border: 2px solid white;
+    height: 50px;
+    display: inline-block;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 35px;
+    border-radius: 8px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+#char  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#spinner {
+    display: block;
+    width: 150px;
+    height: 150px;
+    animation: spin 1500ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slide-by-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-by-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+#about-me.sbl, #exp.sbl{
+    animation: slide-by-left 2000ms ease-out;
+    opacity: 1;
+}
+
+#formation.sbr, #projet.sbr{
+    animation: slide-by-right 2000ms ease-out;
+    opacity: 1;
+}
+
+@keyframes drop-in-l {
+    from {
+        transform: 
+            rotate(-30deg) translate(-100%);
+        opacity: 0;
+    }
+    to {
+        transform:rotate(0deg) translate(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes drop-in-r {
+    from {
+        transform: 
+            rotate(-30deg) translate(100%);
+        opacity: 0;
+    }
+    to {
+        transform:rotate(0deg) translate(0%);
+        opacity: 1;
+    }
+}
+
+#prenom{
     padding: 5px;
     font-size: 20px;
     display: inline-block; /*Nécessaire pour que l'élément puisse être transformé, se comporter comme un bloc*/
-    transition: transform 1s ease-in-out;
+    animation: drop-in-r 2000ms;
 }
 
-#prenom:hover{
+#nom {
+    padding: 5px;
+    font-size: 20px;
+    display: inline-block; /*Nécessaire pour que l'élément puisse être transformé, se comporter comme un bloc*/
+    animation: drop-in-l 2000ms;
+}
+
+/* #prenom:hover{
     transform: rotate(-180deg);
 }
 #nom:hover {
     transform: rotate(180deg);
-}
-
-#titre {
-    text-align: center;
-}
+} */
 
 @font-face { /*"Ajouter" une police d'écriture*/
-    font-family: Consolas;
+    font-family: 'Consolas';
     src: url('FONTS/consola.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: dejavu;
+    font-family: 'dejavu';
     src: url('FONTS/DejaVuSerif.ttf') format('truetype');
 }
 
@@ -45,65 +155,88 @@ body {
     background-size: cover; /*Assure que le dégradé couvre toute la page*/
 }
 
-#about-me {
-    margin: 5%;
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
+#formation, #about-me, #projet, #exp{
     transition: transform 0.3s ease;
-    cursor: url('CursorQ2.png'), auto;
-    color: #d2c6dc;
+    font-weight: normal;
+    padding: 10px;
+    margin-left: 10%;
+    margin-right: 30%;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    animation-fill-mode: forwards;
 }
 
 #formation {
-    font-weight: normal;
-    margin: 5%;
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    cursor: url('form.png'), auto;
-    color: #d2c6dc;
+    cursor: url('CursorForm.png'), auto;
 }
 
-#t-formation{
+#about-me {
+    cursor: url('CursorQ2.png'), auto;
+}
+
+#projet {
+    cursor: url('Form.png'), auto;
+}
+
+#exp {
+    cursor: url('CursorExp2.png'), auto;
+}
+
+#line-about, #line-form, #line-projet, #line-exp{
+    width: 90%;
+    height: 1px;
+    background-color: #d2c6dc;
+    margin: 20px 0;
+}
+
+#formation:hover #line-form{
+    width: 0;
+}
+
+#formation {
+    transition: transform 0.3s ease;
+}
+
+#t-formation, #t-about, #t-projet, #t-exp{
+    margin-left: 10px;
     font-size: 35px;
     font-weight: normal;
 }
 
-#bts, #bac{
+#bts, #bac, #t-exp1, #t-exp2{
     margin-left: 15px;
     font-weight: normal;
+    width: 250px;
+    padding-top: 30px;
 }
 
-#bts-ex, #bac-ex{
+#bts, #bac{
+    position: relative;
+}
+
+#bts-ex, #bac-ex, #p-exp1, #p-exp2{
     margin-left: 30px;
+    margin-right: 110px;
 }
 
-#about-me:hover, #formation:hover {
+#formation:hover{
     transform: scale(1.05);
     background: rgb(30, 30, 30);
 }
 
-#about-me:hover #t-about, #formation:hover #t-formation{
+#formation:hover #t-formation{
     font-weight: normal;
     font-family: Consolas;
     color: rgb(50, 156, 200);
-}
-
-#about-me:hover #t-about::before {
-    font-family: Consolas;
-}
-
-#t-about {
-    font-size: 35px;
-    font-weight: normal; /* Pour enlever le gras */
 }
 
 #p-about {
     text-align: left;
     margin: 10px;
     padding: 10px;
+    padding-top: 20px;
+    margin-right: 110px;
 }
 
 #formation:hover #bts, #formation:hover #bac{
@@ -111,9 +244,71 @@ body {
     font-size: 20px;
     font-family: Consolas;
     color: #9cdcfe;
+    text-decoration: underline;
+    text-decoration-color: rgb(241, 76, 76);
+    text-decoration-style: wavy;
 }
 
-#about-me:hover #p-about, #formation:hover #bts-ex, #formation:hover #bac-ex{
+#def-bts{
+    position: absolute;
+    width: 400px;
+    z-index: 1;
+}
+
+#def-bac{
+    position: absolute;
+    width: 400px;
+    top: 170px;
+    left: 130px;
+}
+
+
+#bac:hover ~ #def-bac #def2{
+    display: block;
+}
+
+#bts:hover ~ #def-bts #def1{
+    display: block;
+}
+
+#def1, #def2{
+    background-color: rgb(53, 53, 54);
+    display: none;
+    width: 400px;
+}
+
+#def, #f-line, #s-line{
+    border-collapse: collapse;
+    text-align: justify;
+    width: 450px;
+}
+
+th{
+    background-color: rgb(37, 37, 38);
+    padding: 10px;
+}
+
+td{
+    background-color: rgb(44, 44, 45);
+    padding: 10px;
+}
+
+#t-table, #ex2{
+    color: rgb(204, 204, 204);
+    display: inline;
+}
+
+#t-table2{
+    color: rgb(137, 137, 138);
+    display: inline;
+}
+
+#ex1{
+    color: rgb(52, 124, 206);
+    display: inline;
+}
+
+#formation:hover #bts-ex, #formation:hover #bac-ex{
     font-size: 15px;
     font-family: Consolas;
     color: rgb(206, 145, 120);
@@ -124,7 +319,7 @@ body {
     text-align: center;
 }
 
-#linkedin, #github, #email {
+#linkedin, #github, #email, #insta {
     width: 100px;
     height: 100px;
     text-decoration: none;
@@ -151,19 +346,34 @@ body {
     }
 }
 
+@keyframes resp{
+    0%{
+        transform: scale(1);
+    }50%{
+        transform: scale(1.3);
+    }100%{
+        transform: scale(1);
+    }
+}
+
 #linkedin img:hover{
     content: url(linkedin2.png);
-    animation: jump 1s ease-in-out infinite;
+    animation: resp 3000ms ease-in-out infinite;
 }
 
 #github img:hover{
     content: url(github2.png);
-    animation: jump 1s ease-in-out infinite;
+    animation: resp 3000ms ease-in-out infinite;
 }
 
 #email img:hover{
     content: url(email2.png);
-    animation: jump 1s ease-in-out infinite;
+    animation: resp 3000ms ease-in-out infinite;
+}
+
+#insta img:hover{
+    content: url(insta2.png);
+    animation: resp 3000ms ease-in-out infinite;
 }
 
 #parent{
@@ -195,6 +405,5 @@ body {
 }
 
 #droits{
-    color: #d2c6dc;
     font-size: 10px;
 }

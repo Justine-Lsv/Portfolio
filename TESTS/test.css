@@ -1,0 +1,35 @@
+#bts {
+    margin-top: 400px;
+    margin-left: 15px;
+    font-weight: normal;
+    width: 250px;
+    padding-top: 30px;
+    position: relative; /* Position relative pour l'alignement du tableau */
+}
+
+#def-bts {
+    position: absolute; /* Position absolue pour placer le tableau par rapport au titre */
+    display: none; /* Masqué par défaut */
+    width: 400px;
+    background-color: rgb(53, 53, 54);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 1; /* S'assurer que le tableau soit au-dessus des autres éléments */
+}
+
+#def1 {
+    border-collapse: collapse;
+    width: 100%; /* S'assurer que le tableau utilise toute la largeur */
+}
+
+th, td {
+    padding: 10px; /* Ajouter un padding pour les cellules */
+    color: #ffffff; /* Couleur du texte */
+}
+
+#f-line {
+    background-color: rgb(37, 37, 38); /* Fond de la ligne de titre */
+}
+
+#s-line {
+    background-color: rgb(44, 44, 45); /* Fond des autres lignes */
+}
