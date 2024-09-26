@@ -66,27 +66,52 @@ document.addEventListener('scroll',function() {
     });
 });
 
-document.getElementById('bts').addEventListener('mouseover', function() {
-    const title = document.getElementById('bts');
-    const table = document.getElementById('def-bts');
-    
-    // Obtenez la position du titre par rapport à son parent
-    const rect = title.getBoundingClientRect();
-    
-    // Calculez la nouvelle position du tableau
-    const tableTop = rect.top + window.scrollY - table.offsetHeight - 200; // Place le tableau 10px au-dessus du titre
-    const tableLeft = rect.left + window.scrollX + title.offsetWidth - 150; // Place le tableau 10px à droite du titre
 
-    // Appliquez la nouvelle position au tableau
-    table.style.top = `${tableTop}px`;
-    table.style.left = `${tableLeft}px`;
+//Affichage des définition dans formation
+var titles = ['t-bts', 't-bac']; // Tableau contenant les IDs des titres
 
-    // Affichez le tableau
-    table.style.display = 'block';
-});
+// Boucle sur chaque titre
+titles.forEach(function(titleId) {
+    const title = document.getElementById(titleId);
+    const table = document.getElementById('def-' + titleId.split('-')[1]); // Correspondance dynamique : 't-bts' donne 'def-bts' et 't-bac' donne 'def-bac'
 
-document.getElementById('bts').addEventListener('mouseout', function() {
-    const table = document.getElementById('def-bts');
-    // Masquez le tableau
-    table.style.display = 'none';
+    // Lorsque la souris survole le titre
+    title.addEventListener('mouseover', function() {
+        const rect = title.getBoundingClientRect();
+
+        let tableTop, tableLeft;
+
+        // Calculez des positions spécifiques selon le titre
+        if (titleId === 't-bts') {
+            // Position pour le tableau def-bts
+            tableTop = rect.top + window.scrollY - table.offsetHeight - 130;
+            tableLeft = rect.left + window.scrollX + title.offsetWidth - 100;
+        } else if (titleId === 't-bac') {
+            // Position pour le tableau def-bac (ajustez ces valeurs comme vous le souhaitez)
+            tableTop = rect.top + window.scrollY - table.offsetHeight - 110; // Exemple de décalage différent
+            tableLeft = rect.left + window.scrollX + title.offsetWidth - 100; // Exemple de décalage différent
+        }
+
+        // Appliquez la nouvelle position au tableau
+        table.style.top = `${tableTop}px`;
+        table.style.left = `${tableLeft}px`;
+
+        // Affichez le tableau
+        table.style.display = 'block';
+    });
+
+    // Lorsque la souris quitte le titre
+    title.addEventListener('mouseout', function(e) {
+        // Vérifie si la souris est réellement en dehors du tableau aussi
+        if (!table.contains(e.relatedTarget)) {
+            table.style.display = 'none';
+        }
+    });
+
+    // Évite de cacher le tableau si la souris est sur le tableau lui-même
+    table.addEventListener('mouseout', function(e) {
+        if (!title.contains(e.relatedTarget)) {
+            table.style.display = 'none';
+        }
+    });
 });

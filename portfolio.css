@@ -155,9 +155,8 @@ body {
     background-size: cover; /*Assure que le dégradé couvre toute la page*/
 }
 
-#formation, #about-me, #projet, #exp{
+#about-me, #formation, #projet, #exp{
     transition: transform 0.3s ease;
-    font-weight: normal;
     padding: 10px;
     margin-left: 10%;
     margin-right: 30%;
@@ -190,12 +189,24 @@ body {
     margin: 20px 0;
 }
 
-#formation:hover #line-form{
-    width: 0;
+#formation:hover{
+    background-color: rgb(30, 30, 30);
+    font-family: consolas;
+    border-radius: 8px;
+    color: rgb(206, 145, 120);
 }
 
-#formation {
-    transition: transform 0.3s ease;
+#formation:hover #t-formation{
+    color: rgb(86, 156, 214);
+}
+
+#formation:hover #t-bts, #formation:hover #t-bac{
+    text-decoration: underline wavy rgb(241, 76, 76);
+    color: #9cdcfe;
+}
+
+#formation:hover #line-form{
+    width: 0;
 }
 
 #t-formation, #t-about, #t-projet, #t-exp{
@@ -204,31 +215,30 @@ body {
     font-weight: normal;
 }
 
-#bts, #bac, #t-exp1, #t-exp2{
+#t-bts, #t-bac{
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+
+
+#def-bts, #def-bac{
+    box-sizing: border-box;
+    width: 400px;
+    display: none;
+    position: absolute;
+    background-color: rgb(69, 69, 69);
+}
+
+#bts-ex, #bac-ex, #p-exp1, #p-exp2{
+    margin-left: 25px;
+}
+
+#t-exp1, #t-exp2{
     margin-left: 15px;
     font-weight: normal;
     width: 250px;
     padding-top: 30px;
-}
-
-#bts, #bac{
-    position: relative;
-}
-
-#bts-ex, #bac-ex, #p-exp1, #p-exp2{
-    margin-left: 30px;
-    margin-right: 110px;
-}
-
-#formation:hover{
-    transform: scale(1.05);
-    background: rgb(30, 30, 30);
-}
-
-#formation:hover #t-formation{
-    font-weight: normal;
-    font-family: Consolas;
-    color: rgb(50, 156, 200);
 }
 
 #p-about {
@@ -239,45 +249,7 @@ body {
     margin-right: 110px;
 }
 
-#formation:hover #bts, #formation:hover #bac{
-    font-weight: normal;
-    font-size: 20px;
-    font-family: Consolas;
-    color: #9cdcfe;
-    text-decoration: underline;
-    text-decoration-color: rgb(241, 76, 76);
-    text-decoration-style: wavy;
-}
-
-#def-bts{
-    position: absolute;
-    width: 400px;
-    z-index: 1;
-}
-
-#def-bac{
-    position: absolute;
-    width: 400px;
-    top: 170px;
-    left: 130px;
-}
-
-
-#bac:hover ~ #def-bac #def2{
-    display: block;
-}
-
-#bts:hover ~ #def-bts #def1{
-    display: block;
-}
-
-#def1, #def2{
-    background-color: rgb(53, 53, 54);
-    display: none;
-    width: 400px;
-}
-
-#def, #f-line, #s-line{
+#f-line, #s-line{
     border-collapse: collapse;
     text-align: justify;
     width: 450px;
@@ -308,18 +280,12 @@ td{
     display: inline;
 }
 
-#formation:hover #bts-ex, #formation:hover #bac-ex{
-    font-size: 15px;
-    font-family: Consolas;
-    color: rgb(206, 145, 120);
-}
-
 #rs {
     padding: 50px;
     text-align: center;
 }
 
-#linkedin, #github, #email, #insta {
+.social-icon {
     width: 100px;
     height: 100px;
     text-decoration: none;
@@ -350,7 +316,7 @@ td{
     0%{
         transform: scale(1);
     }50%{
-        transform: scale(1.3);
+        transform: scale(1.1);
     }100%{
         transform: scale(1);
     }
@@ -358,22 +324,22 @@ td{
 
 #linkedin img:hover{
     content: url(linkedin2.png);
-    animation: resp 3000ms ease-in-out infinite;
+    animation: resp 2500ms ease-in-out infinite;
 }
 
 #github img:hover{
     content: url(github2.png);
-    animation: resp 3000ms ease-in-out infinite;
+    animation: resp 2500ms ease-in-out infinite;
 }
 
 #email img:hover{
     content: url(email2.png);
-    animation: resp 3000ms ease-in-out infinite;
+    animation: resp 2500ms ease-in-out infinite;
 }
 
 #insta img:hover{
     content: url(insta2.png);
-    animation: resp 3000ms ease-in-out infinite;
+    animation: resp 2500ms ease-in-out infinite;
 }
 
 #parent{
