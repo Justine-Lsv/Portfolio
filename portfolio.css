@@ -1,6 +1,14 @@
+html {
+    scroll-behavior: smooth;
+}
+
 header, #name2, #formation, #about-me, #projet, #exp, #t-formation, 
 #t-about, #t-projet, #t-exp, #droits, #p-bvn {
     color: #d2c6dc;
+}
+
+#exp {
+    padding-right: 50px;
 }
 
 #navbar{
@@ -91,7 +99,29 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     }
 }
 
-#about-me.sbl, #exp.sbl{
+/* pour l'animation de la section "À Propos" */
+.sbl-animate {
+    /* Exemple d'animation : apparaître avec une translation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2000ms forwards; /* Durée de l'animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+/* Ajoute ici les styles pour .sbl et .sbr */
+
+#exp.sbl{
     animation: slide-by-left 2000ms ease-out;
     opacity: 1;
 }
@@ -239,15 +269,46 @@ body {
     background-color: rgb(69, 69, 69);
 }
 
-#bts-ex, #bac-ex, #p-exp1, #p-exp2{
+#bts-ex, #bac-ex{
+    margin-left: 25px;
+    letter-spacing: 1.8px;
+}
+
+.t-exp{
+    margin-left: 15px;
+    font-weight: normal;
+    padding-top: 30px;
+}
+
+#list-exp1, #list-exp2, #list-exp3, #list-exp5{
+    display: none;
+}
+
+.date{
     margin-left: 25px;
 }
 
-#t-exp1, #t-exp2{
-    margin-left: 15px;
-    font-weight: normal;
-    width: 250px;
-    padding-top: 30px;
+.list-exp {
+    width: 500px;
+}
+
+li{
+    margin-bottom: 5px;
+}
+
+#heart{
+    margin-right: 10px;
+}
+
+.toggle-arrow {
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#goto-formation{
+    text-decoration: none;
+    color: inherit;
 }
 
 #p-about {
@@ -256,6 +317,7 @@ body {
     padding: 10px;
     padding-top: 20px;
     margin-right: 110px;
+    letter-spacing: 1.8px;
 }
 
 #f-line, #s-line{
