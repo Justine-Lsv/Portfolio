@@ -1,6 +1,33 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
+
+        // Récupérer la cible du lien
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        // Faire défiler doucement jusqu'à l'élément cible
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+window.addEventListener('scroll', function() {
+    const totopButton = document.querySelector('#totop img');
+    
+    if (window.scrollY > 300) {
+        totopButton.classList.add('visible'); // Ajoute la classe 'visible' pour afficher le bouton
+    } else {
+        totopButton.classList.remove('visible'); // Retire la classe 'visible' pour masquer le bouton
+    }
+});
+
+document.querySelector('#totop a').addEventListener('click', function(e) {
+    e.preventDefault(); // Empêche le comportement par défaut du lien
+
+    // Défilement en douceur vers le haut
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
 
@@ -32,26 +59,27 @@ document.addEventListener('scroll', function() {
         }
     });
 });
+
 //Bienvenue
 const text = ["Bienvenue sur mon portfolio !", "Welcome to my portfolio !"];
 let currentTextIndex = 0;
 let currentCharIndex = 0;
 let isDeleting = false;
-const typingSpd = 65;
-const deletingSpd = 65;
-const pauseBtweenTxt = 1000;
+let typingSpeed = 65;
+let deletingSpeed = 65;
+const pauseBetweenTexts = 1000;
 
 const textElement = document.getElementById('bvn');
+const speedRange = document.getElementById('speed-range');
 
+// Fonction pour faire défiler le texte
 function typeEffect() {
-    const currentText=text[currentTextIndex];
+    const currentText = text[currentTextIndex];
 
-    if(isDeleting){
+    if (isDeleting) {
         textElement.innerHTML = currentText.substring(0, currentCharIndex - 1);
         currentCharIndex--;
-    }
-
-    else{
+    } else {
         textElement.innerHTML = currentText.substring(0, currentCharIndex + 1);
         currentCharIndex++;
     }
@@ -62,16 +90,32 @@ function typeEffect() {
     }
 
     if (!isDeleting && currentCharIndex === currentText.length) {
-        setTimeout(() => isDeleting = true, pauseBtweenTxt);
+        setTimeout(() => isDeleting = true, pauseBetweenTexts);
     }
 
-    const spd = isDeleting ? deletingSpd : typingSpd;
-
-    setTimeout(typeEffect, spd);
-
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeEffect, speed);
 }
 
 typeEffect();
+
+// Barre de réglage pour ajuster la vitesse
+speedRange.addEventListener('input', function() {
+    const value = this.value;
+
+    // Ajuster les vitesses d'écriture et d'effacement en fonction de la position de la barre
+    // La plage varie de 200ms (très lent) à 20ms (très rapide)
+    typingSpeed = 200 - (value * 1.8);  // Ajuste la vitesse d'écriture
+    deletingSpeed = 200 - (value * 1.8);  // Ajuste la vitesse d'effacement
+
+    // Mise à jour du curseur entre la tortue et le lièvre
+    if (value < 50) {
+        this.classList.remove('fast'); // Montre la tortue
+    } else {
+        this.classList.add('fast'); // Montre le lièvre
+    }
+});
+
 
 //Affichage des sections
 document.addEventListener('scroll',function() {

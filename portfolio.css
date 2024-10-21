@@ -34,7 +34,7 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
 }
 
 #p-bvn{
-    margin: 100px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,6 +52,58 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     font-size: 35px;
     border-radius: 8px;
 }
+
+#control-panel {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#control-panel input[type="range"] {
+    width: 150px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#control-panel input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: url('https://logopond.com/logos/0069e1f7b32fb11ee216e1dc6c6c0c0e.png') no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#control-panel input[type="range"].fast::-webkit-slider-thumb {
+    background: url('https://images.scalebranding.com/geometric-hare-logo-91235a8d-e5b6-4a39-bffa-94d6f8d7e0da.jpg') no-repeat center;
+    background-size: cover;
+}
+
+#control-panel input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: url('https://logopond.com/logos/0069e1f7b32fb11ee216e1dc6c6c0c0e.png') no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#control-panel input[type="range"].fast::-moz-range-thumb {
+    background: url('https://images.scalebranding.com/geometric-hare-logo-91235a8d-e5b6-4a39-bffa-94d6f8d7e0da.jpg') no-repeat center;
+    background-size: cover;
+}
+
 
 @keyframes spin {
     from {
@@ -272,6 +324,7 @@ body {
 #bts-ex, #bac-ex{
     margin-left: 25px;
     letter-spacing: 1.8px;
+    width: 85%;
 }
 
 .t-exp{
@@ -289,7 +342,7 @@ body {
 }
 
 .list-exp {
-    width: 500px;
+    width: 85%;
 }
 
 li{
