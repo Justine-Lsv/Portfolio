@@ -404,6 +404,85 @@ td{
     display: inline;
 }
 
+/* SECTION PROJETS */
+
+
+#les-projets{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 230px;
+    height: 254px;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    padding: .4em;
+  }
+  
+  .card .projets {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #773b8065;
+    border: 1px solid #5adeff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card .projets:hover {
+    flex: 4;
+  }
+
+  #bob{
+    background-image: url(BOB.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #portfolio{
+    background-image: url(Photo-CV.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .projets{
+    opacity: 50%;
+    font-weight: bold;
+  }
+
+  .projets:hover{
+    opacity: 100%;
+  }
+  
+  .card .projets .s-projet {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #00586e;
+    letter-spacing: .1em;
+  }
+  
+  .card .projets:hover .s-projet {
+    transform: rotate(0);
+    color: #5adeff;
+  }
+
+  .s-projet{   
+    text-shadow: -1px -1px 0 #414141;
+  }
+
+  /* SECTION BAS DE PAGE */
+
 #rs {
     padding: 50px;
     text-align: center;
