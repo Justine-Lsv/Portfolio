@@ -218,3 +218,71 @@ function toggleList(listId, arrowElement) {
         arrowElement.innerHTML = '&#9660;'; // Remet la flèche vers le bas
     }
 }
+
+
+//CAROUSEL
+$(document).ready(function() {
+    function moveToSelected(element) {
+        var selected;
+
+        if (element === "next") {
+            selected = $(".selected").next();
+
+            // Si on dépasse le dernier élément, revenir au premier
+            if (selected.length === 0) {
+                selected = $('#carousel div').first();
+            }
+
+        } else if (element === "prev") {
+            selected = $(".selected").prev();
+
+            // Si on dépasse le premier élément, revenir au dernier
+            if (selected.length === 0) {
+                selected = $('#carousel div').last();
+            }
+
+        } else {
+            selected = element;
+        }
+
+        // Réinitialiser les classes
+        $('#carousel div').removeClass();
+
+        // Ajouter les classes aux bons éléments
+        var prev = $(selected).prev();
+        var next = $(selected).next();
+
+        if (prev.length === 0) {
+            prev = $('#carousel div').last();
+        }
+
+        if (next.length === 0) {
+            next = $('#carousel div').first();
+        }
+
+        $(prev).addClass("prev");
+        $(selected).addClass("selected");
+        $(next).addClass("next");
+    }
+
+    // Gestion des événements clavier
+    $(document).keydown(function(e) {
+        switch (e.which) {
+            case 37: // Flèche gauche
+                moveToSelected('prev');
+                break;
+            case 39: // Flèche droite
+                moveToSelected('next');
+                break;
+            default:
+                return;
+        }
+        e.preventDefault();
+    });
+
+    // Gestion du clic
+    $('#carousel div').click(function() {
+        moveToSelected($(this));
+    });
+
+});
