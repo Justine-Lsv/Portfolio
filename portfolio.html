@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justine Lasvenes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="portfolio.css">
 </head>
 
@@ -168,21 +169,22 @@
 
         <div id="les-projets">
 
-            <div class="card">
+            <div id="carousel">
 
-                <p class="projets" id="portfolio">
-                    <span class="s-projet">Mon <br> Portfolio</span>
-                </p>
-
-                <p class="projets" id="bob">
-                    <span class="s-projet">BOB</span>
-                </p>
-
-                <p class="projets" id="p-futur">
-                    <span class="s-projet">A venir...</span>
-                </p>
+                <div class="prev">
+                    <p id="portfolio"><span>PORTFOLIO</span></p>    
+                </div>
+          
+                <div class="selected">
+                    <p id="bob"><span>BOB</span></p>
+                </div>
+          
+                <div class="next">
+                    <p id="a-venir"><span>A VENIR</span></p>
+                </div>
 
             </div>
+          
         </div>
 
     </section>

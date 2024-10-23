@@ -406,81 +406,85 @@ td{
 
 /* SECTION PROJETS */
 
-
-#les-projets{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card {
-    width: 230px;
+#carousel {
+    width: 90%;
     height: 254px;
     border-radius: 4px;
     display: flex;
-    gap: 10px;
-    padding: .4em;
-  }
-  
-  .card .projets {
-    height: 100%;
-    flex: 1;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all .5s;
-    background: #773b8065;
-    border: 1px solid #5adeff;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#carousel div {
+    transition: transform 1s ease, opacity 1s ease, width 0.8s ease, height 0.8s ease; /* Transition plus fluide pour la taille */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .card .projets:hover {
-    flex: 4;
-  }
+    position: absolute; /* Positionnement absolu pour le carousel */
+}
 
-  #bob{
-    background-image: url(BOB.png);
-    background-size: cover;
-    background-position: center;
-  }
+#carousel .prev {
+    transform: translateX(-200%) scale(0.8); /* Rapprochement à gauche */
+    opacity: 0.5; /* Transparence pour les éléments à gauche et à droite */
+    z-index: 5; /* Z-index pour le placement */
+    width: 100px;  /* Largeur réduite des éléments non centraux */
+    height: 200px; /* Hauteur réduite des éléments non centraux */
+}
 
-  #portfolio{
-    background-image: url(Photo-CV.jpg);
-    background-size: cover;
-    background-position: center;
-  }
+#carousel .selected {
+    transform: translateX(0) scale(1) ; /* Position centrée sans réduction */
+    opacity: 1; /* Opacité maximale */
+    z-index: 10; /* L'élément central doit être au-dessus */
+    width: 200px;  /* Largeur de l'élément central */
+    height: 200px; /* Hauteur de l'élément central */
+    transition: transform 1.5s ease, width 1s ease, height 1s ease; /* Animation de la taille */
+}
 
-  .projets{
-    opacity: 50%;
-    font-weight: bold;
-  }
+#carousel .next {
+    transform: translateX(200%) scale(0.8) ; /* Rapprochement à droite */
+    opacity: 0.5; /* Transparence pour les éléments à gauche et à droite */
+    z-index: 5; /* Z-index pour le placement */
+    width: 100px;  /* Réduction de la largeur des éléments non centraux */
+    height: 200px; /* Réduction de la hauteur des éléments non centraux */
+}
 
-  .projets:hover{
-    opacity: 100%;
-  }
-  
-  .card .projets .s-projet {
+#carousel p {
+    width: 100%; /* Ajustement pour occuper toute la largeur du parent */
+    height: 100%; /* Ajustement pour occuper toute la hauteur du parent */
+    overflow: hidden;
+    cursor: pointer; /* Pointeur pour indiquer un élément cliquable */
+    border-radius: 2px;
+    border: 1px solid #ff5a91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s; /* Transition pour toutes les propriétés */
+}
+
+#carousel p span {
     min-width: 14em;
-    padding: .5em;
-    text-align: center;
-    transform: rotate(-90deg);
-    transition: all .5s;
-    text-transform: uppercase;
-    color: #00586e;
-    letter-spacing: .1em;
-  }
+    padding: 0.5em;
+    text-align: center;/* Texte tourné */
+    transition: transform 1.5s ease; /* Transition pour le texte */
+    text-transform: uppercase; /* Majuscules */
+    color: #ff568e; /* Couleur du texte */
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #9cdcfe;
+}
+
+#portfolio {
+    background-image: url(Photo-CV.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#bob{
+    background-image: url(BOB.png);
+    background-position: center;
+    background-size: cover;
+}
   
-  .card .projets:hover .s-projet {
-    transform: rotate(0);
-    color: #5adeff;
-  }
-
-  .s-projet{   
-    text-shadow: -1px -1px 0 #414141;
-  }
-
   /* SECTION BAS DE PAGE */
 
 #rs {
