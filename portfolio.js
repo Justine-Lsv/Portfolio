@@ -60,6 +60,22 @@ document.addEventListener('scroll', function() {
     });
 });
 
+//navbar défilement
+
+const navbar = document.getElementById('navbar');
+const direction = document.querySelector('.direction');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+        navbar.classList.add('scrolled');
+        direction.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+        direction.classList.remove('scrolled');
+    }
+});
+
+
 //Bienvenue
 const text = ["Bienvenue sur mon portfolio !", "Welcome to my portfolio !"];
 let currentTextIndex = 0;
@@ -194,19 +210,7 @@ titles.forEach(function(titleId) {
     });
 });
 
-// function toggleList(listId) {
-//     const list = document.getElementById(listId);
-//     const arrow = document.querySelector('.toggle-arrow');
-    
-//     if (list.style.display === 'none') {
-//         list.style.display = 'block'; // Affiche la liste
-//         arrow.classList.add('active'); // Tourne la flèche vers le haut
-//     } else {
-//         list.style.display = 'none'; // Masque la liste
-//         arrow.classList.remove('active'); // Remet la flèche vers le bas
-//     }
-// }
-
+// Ouvrir/Fermer les sections de Parcours
 function toggleList(listId, arrowElement) {
     const list = document.getElementById(listId);
     
@@ -218,7 +222,6 @@ function toggleList(listId, arrowElement) {
         arrowElement.innerHTML = '&#9660;'; // Remet la flèche vers le bas
     }
 }
-
 
 //CAROUSEL
 $(document).ready(function() {
@@ -278,6 +281,14 @@ $(document).ready(function() {
                 return;
         }
         e.preventDefault();
+    });
+
+    $(".pass-d").click(function(){
+        moveToSelected('next');
+    });
+
+    $(".pass-g").click(function(){
+        moveToSelected('prev');
     });
 
     // Gestion du clic

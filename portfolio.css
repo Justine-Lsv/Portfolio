@@ -11,27 +11,90 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     padding-right: 50px;
 }
 
-#navbar{
+/* NAVBAR */
+#navbar {
     background-color: rgba(28, 21, 42, 0.911);
     backdrop-filter: blur(5px);
     width: 100%;
     top: 0;
-    background-attachment:fixed ;
     position: fixed;
     display: flex;
-    align-items: baseline center;
+    align-items: center;
     height: 80px;
     border-radius: 8px;
-    padding: 5px 5px 5px 15px;
+    padding: 5px 15px;
+    z-index: 1000;
 }
 
 #name2 {
     text-decoration: none;
 }
 
-#name{
+#name {
     width: 200px;
 }
+
+#char {
+    margin-left: 20px;
+}
+
+#spinner {
+    width: 60px;
+    height: 60px;
+    animation: spin 1500ms linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Style pour le conteneur des liens */
+.direction {
+    margin-left: 100px;
+    margin-right: 50px;
+    display: flex; /* Garde les éléments en ligne */
+    justify-content:space-around; /* Aligne les éléments à droite */
+    flex-grow: 1; /* Permet aux éléments de s'étendre */
+    transition: all 5s ease; /* Ajoute une transition pour le mouvement */
+}
+
+/* État scrolled pour aligner les éléments en colonne */
+.scrolled #nav-projet {
+    position: fixed; /* Rendre le conteneur fixe */
+    right: 10%; /* Tout à droite */
+    top: 80px; /* Juste en dessous de la barre de navigation */
+    flex-direction: column; /* Aligne les liens en colonne */
+    transform: translateX(0); /* Aucun décalage horizontal */
+}
+
+
+/* Style des liens */
+.direction a {
+    font-size: 20px;
+    font-family: nexa;
+    margin-right:15px;
+    padding-top: 30px;
+    color: #d2c6dc;
+    text-decoration: none;
+}
+
+/* État hover des liens */
+.direction a:hover {
+    color: #ff568e; /* Change la couleur au survol */
+}
+
+/* Marge pour le contenu principal */
+main {
+    margin-top: 80px; /* Marge pour éviter que le contenu ne soit caché par la navbar */
+}
+
+
+/* BIENVENUE SUR MON PORTFOLIO */
 
 #p-bvn{
     margin-top: 100px;
@@ -43,7 +106,7 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
 #bvn{
     margin-top: 100px;
     background-color: rgba(82, 85, 84, 0.253);
-    border: 2px solid white;
+    border: 2px solid #ff568e;
     height: 50px;
     display: inline-block;
     padding-top: 5px;
@@ -67,7 +130,7 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     -webkit-appearance: none;
     appearance: none;
     height: 10px;
-    background: #ddd;
+    background: #d2c6dc;
     border-radius: 5px;
     outline: none;
     margin-left: 10px;
@@ -77,56 +140,37 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
 #control-panel input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: url('https://logopond.com/logos/0069e1f7b32fb11ee216e1dc6c6c0c0e.png') no-repeat center;
+    background: url('tortue.png') no-repeat center;
     background-size: cover;
     cursor: pointer;
 }
 
 #control-panel input[type="range"].fast::-webkit-slider-thumb {
-    background: url('https://images.scalebranding.com/geometric-hare-logo-91235a8d-e5b6-4a39-bffa-94d6f8d7e0da.jpg') no-repeat center;
+    background: url('lapin.png') no-repeat center;
     background-size: cover;
 }
 
 #control-panel input[type="range"]::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: url('https://logopond.com/logos/0069e1f7b32fb11ee216e1dc6c6c0c0e.png') no-repeat center;
+    background: url('tortue.png') no-repeat center;
     background-size: cover;
     cursor: pointer;
 }
 
 #control-panel input[type="range"].fast::-moz-range-thumb {
-    background: url('https://images.scalebranding.com/geometric-hare-logo-91235a8d-e5b6-4a39-bffa-94d6f8d7e0da.jpg') no-repeat center;
+    background: url('lapin.png') no-repeat center;
     background-size: cover;
 }
 
 
-@keyframes spin {
-    from {
-        transform: rotate(0turn);
-    }
-    to {
-        transform: rotate(1turn);
-    }
-}
 
-#char  {
-    margin-bottom: 100px;
-    padding: 1em;
-    flex: 1;
-}
 
-#spinner {
-    flex: 1;
-    width: 60px;
-    height: 60px;
-    animation: spin 1500ms linear infinite;
-}
-
+/* Animation sections */
 @keyframes slide-by-left {
     from {
         transform: translateX(-100%);
@@ -238,6 +282,11 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     src: url('FONTS/DejaVuSerif.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'nexa';
+    src: url('FONTS/Nexa-Heavy.ttf') format('truetype');
+}
+
 body {
     font-family: dejavu;
     background: linear-gradient(to bottom, #1c152a, #0d0f12); /*Dégradé de x à x couleur*/
@@ -257,26 +306,19 @@ body {
     animation-fill-mode: forwards;
 }
 
-#formation {
-    cursor: url('CursorForm.png'), auto;
-}
-
-#about-me {
-    cursor: url('CursorQ2.png'), auto;
-}
-
-#projet {
-    cursor: url('Form.png'), auto;
-}
-
-#exp {
-    cursor: url('CursorExp2.png'), auto;
+#about-me img, #formation img, #img-form, #exp img{
+    height: 50px;
+    width: 50px;
+    float: left;
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
 }
 
 #line-about, #line-form, #line-projet, #line-exp{
     width: 90%;
     height: 1px;
-    background-color: #d2c6dc;
+    background-color: #ff568e;
     margin: 20px 0;
 }
 
@@ -285,6 +327,10 @@ body {
     font-family: consolas;
     border-radius: 8px;
     color: rgb(206, 145, 120);
+}
+
+#formation:hover img{
+    display: none;
 }
 
 #formation:hover #t-formation{
@@ -301,6 +347,7 @@ body {
 }
 
 #t-formation, #t-about, #t-projet, #t-exp{
+    display: flex;
     margin-left: 10px;
     font-size: 35px;
     font-weight: normal;
@@ -351,12 +398,14 @@ li{
 
 #heart{
     margin-right: 10px;
+    color: #ff568e;
 }
 
 .toggle-arrow {
     cursor: pointer;
     font-size: 16px;
     margin-right: 10px;
+    color: #ff568e;
 }
 
 #goto-formation{
@@ -416,75 +465,162 @@ td{
     position: relative;
 }
 
+#carousel img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #carousel div {
-    transition: transform 1s ease, opacity 1s ease, width 0.8s ease, height 0.8s ease; /* Transition plus fluide pour la taille */
+    transition: transform 1s ease, opacity 1s ease, width 0.8s ease, height 0.8s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute; /* Positionnement absolu pour le carousel */
+    position: absolute;
 }
 
 #carousel .prev {
-    transform: translateX(-200%) scale(0.8); /* Rapprochement à gauche */
-    opacity: 0.5; /* Transparence pour les éléments à gauche et à droite */
-    z-index: 5; /* Z-index pour le placement */
-    width: 100px;  /* Largeur réduite des éléments non centraux */
-    height: 200px; /* Hauteur réduite des éléments non centraux */
+    transform: translateX(-200%) scale(0.8);
+    opacity: 0.5;
+    z-index: 5;
+    width: 100px;
+    height: 200px;
 }
 
 #carousel .selected {
-    transform: translateX(0) scale(1) ; /* Position centrée sans réduction */
-    opacity: 1; /* Opacité maximale */
-    z-index: 10; /* L'élément central doit être au-dessus */
-    width: 200px;  /* Largeur de l'élément central */
-    height: 200px; /* Hauteur de l'élément central */
-    transition: transform 1.5s ease, width 1s ease, height 1s ease; /* Animation de la taille */
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 10;
+    width: 200px;
+    height: 200px;
+    transition: transform 1.5s ease, width 1s ease, height 1s ease;
+    position: relative; /* Important pour l'application du pseudo-élément */
 }
 
 #carousel .next {
-    transform: translateX(200%) scale(0.8) ; /* Rapprochement à droite */
-    opacity: 0.5; /* Transparence pour les éléments à gauche et à droite */
-    z-index: 5; /* Z-index pour le placement */
-    width: 100px;  /* Réduction de la largeur des éléments non centraux */
-    height: 200px; /* Réduction de la hauteur des éléments non centraux */
+    transform: translateX(200%) scale(0.8);
+    opacity: 0.5;
+    z-index: 5;
+    width: 100px;
+    height: 200px;
 }
 
-#carousel p {
-    width: 100%; /* Ajustement pour occuper toute la largeur du parent */
-    height: 100%; /* Ajustement pour occuper toute la hauteur du parent */
+#carousel h1 {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    cursor: pointer; /* Pointeur pour indiquer un élément cliquable */
+    cursor: pointer;
     border-radius: 2px;
     border: 1px solid #ff5a91;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s; /* Transition pour toutes les propriétés */
+    transition: all 0.5s;
+    z-index: 2; /* Le texte doit être au-dessus de l'overlay */
+    position: relative;
 }
 
-#carousel p span {
+#carousel h1 span {
     min-width: 14em;
     padding: 0.5em;
-    text-align: center;/* Texte tourné */
-    transition: transform 1.5s ease; /* Transition pour le texte */
-    text-transform: uppercase; /* Majuscules */
-    color: #ff568e; /* Couleur du texte */
+    text-align: center;
+    transition: transform 1.5s ease;
+    text-transform: uppercase;
+    color: #2c012c;
     font-weight: bold;
-    text-shadow: 1px 1px 0px #9cdcfe;
+    font-family: nexa;
+    text-shadow: 1px 1px 0px #ff568e;
 }
 
-#portfolio {
-    background-image: url(Photo-CV.jpg);
-    background-position: center;
-    background-size: cover;
+#carousel .selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Voile semi-transparent noir */
+    z-index: 1; /* Derrière le texte mais devant l'image */
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-#bob{
-    background-image: url(BOB.png);
-    background-position: center;
-    background-size: cover;
+#carousel .selected:hover::before {
+    opacity: 1; /* Faire apparaître le voile noir lors du survol */
 }
-  
+
+#carousel .next h1 span {
+    transform: rotate(90deg);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#carousel .prev h1 span {
+    transform: rotate(-90deg);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#carousel .prev h1, #carousel .next h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+#carousel p {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d2c6dc;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2; /* Assurez-vous que le texte est au-dessus du voile */
+}
+
+#carousel .selected:hover {
+    opacity: 1;
+}
+
+#carousel .selected:hover p {
+    display: block;
+    opacity: 1;
+}
+
+#carousel .selected:hover h1 span {
+    position: absolute;
+    top: 0.5%;
+}
+
+#projet{
+    position: relative;
+}
+
+#les-projets .pass-d {
+    position: absolute;
+    right: 2%;
+    top: 230px;
+    font-size: 50px;
+    color: #d2c6dc;
+}
+
+#les-projets .pass-g{
+    position: absolute;
+    left: -7%;
+    top: 230px;
+    font-size: 50px;
+    color: #d2c6dc;
+}
+
+#les-projets .pass-d:hover, #les-projets .pass-g:hover{
+    color: #ff568e;
+}
+
   /* SECTION BAS DE PAGE */
 
 #rs {
@@ -500,10 +636,6 @@ td{
     display: inline-block;
     transition: all 0.3s ease-in-out;
 }
-
-/* #linkedin:hover, #github:hover, #email:hover {
-    animation: jump 1s ease-in-out infinite;
-} ça fait sauter l'image en prenant en compte la partie transparente*/
 
 @keyframes jump{
     0% {
