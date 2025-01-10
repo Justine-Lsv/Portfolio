@@ -63,16 +63,6 @@ header, #name2, #formation, #about-me, #projet, #exp, #t-formation,
     transition: all 5s ease; /* Ajoute une transition pour le mouvement */
 }
 
-/* État scrolled pour aligner les éléments en colonne */
-.scrolled #nav-projet {
-    position: fixed; /* Rendre le conteneur fixe */
-    right: 10%; /* Tout à droite */
-    top: 80px; /* Juste en dessous de la barre de navigation */
-    flex-direction: column; /* Aligne les liens en colonne */
-    transform: translateX(0); /* Aucun décalage horizontal */
-}
-
-
 /* Style des liens */
 .direction a {
     font-size: 20px;
@@ -570,7 +560,7 @@ td{
     text-align: center;
 }
 
-#carousel p {
+#carousel p, #carousel a {
     display: none;
     position: absolute;
     top: 50%;
@@ -587,7 +577,7 @@ td{
     opacity: 1;
 }
 
-#carousel .selected:hover p {
+#carousel .selected:hover p, #carousel .selected:hover a {
     display: block;
     opacity: 1;
 }
