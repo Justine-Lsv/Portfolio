@@ -179,25 +179,14 @@
             color: #93c5fd;
         }
 
+        .dark .text-blue-900 {
+            color: #93c5fd;
+        }
+
         /* Logo background for visibility in dark mode */
-        .logo-background {
-            position: relative;
-        }
-
-        .logo-background::before {
-            content: '';
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            width: 4rem;
-            height: 4rem;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 75%);
-            z-index: 0;
-            border-radius: 50%;
-        }
-
-        .logo-background img.absolute {
-            z-index: 1;
+        /* Halo lumineux épousant le contour des logos en dark mode */
+        .dark .logo-background img.absolute {
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
         }
     </style>
     <script>
@@ -306,8 +295,7 @@
             <div class="mb-12">
                 <p class="text-xl md:text-2xl font-semibold text-indigo-700 mb-3">Gestionnaire RH • Administration • Support Opérationnel</p>
                 <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                    Intéressée par les postes de <strong>Technicienne de l'Information Médicale</strong>, tout en restant ouverte à d'autres fonctions administratives dans le secteur hospitalier et médical.
-                </p>
+                    Professionnelle administrative en établissement public de santé, attentive à la qualité des informations traitées et aux exigences de confidentialité, avec un intérêt particulier pour l’information médicale et les fonctions administratives</p>
             </div>
 
             <a href="#profil" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition shadow-md">
@@ -462,7 +450,7 @@
                         <h3 class="text-lg font-bold text-gray-900">Gestionnaire RH</h3>
                         <p class="text-blue-900 font-semibold">EPS Barthélémy Durand (Établissement Public de Santé)</p>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0 whitespace-nowrap">Mai 2025 – Aujourd'hui</span>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0 whitespace-nowrap">Mai 2025 – Janvier 2026</span>
                 </div>
                 <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start gap-2">
@@ -644,9 +632,6 @@
                     <h3 class="text-lg font-bold text-gray-900 mb-2">Baccalauréat STMG</h3>
                     <p class="text-blue-900 font-semibold mb-1">Option SIG (Systèmes d'Information de Gestion)</p>
                     <p class="text-sm text-gray-600 mb-3">Lycée Geoffroy-Saint-Hilaire • 2017–2019 • Obtenu</p>
-                    <p class="text-sm text-gray-700 mb-3">
-                        Formation incluant : gestion, droit, économie, systèmes d'information et management des organisations.
-                    </p>
                     <p class="text-sm text-gray-700">
                         <strong>Compétences transférables :</strong> Gestion de l'information, organisation, analyse de processus, connaissance du cadre juridique des organisations.
                     </p>
