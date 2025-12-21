@@ -5,7 +5,9 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git -C \"c:\\Users\\justi\\Desktop\\PRO\\Portfolio3\" add .)",
-      "Bash(git -C \"c:\\Users\\justi\\Desktop\\PRO\\Portfolio3\" commit -m \"Améliorations dark mode : logos et sous-titres formation\n\n- Remplacement du gradient radial par drop-shadow pour les logos (épouse le contour PNG)\n- Amélioration lisibilité des sous-titres formation en dark mode (text-blue-900)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
+      "Bash(git -C \"c:\\Users\\justi\\Desktop\\PRO\\Portfolio3\" commit -m \"Améliorations dark mode : logos et sous-titres formation\n\n- Remplacement du gradient radial par drop-shadow pour les logos (épouse le contour PNG)\n- Amélioration lisibilité des sous-titres formation en dark mode (text-blue-900)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
+      "Bash(git -C \"c:\\Users\\justi\\Desktop\\PRO\\Portfolio3\" push)",
+      "Bash(git -C:*)"
     ]
   }
 }
