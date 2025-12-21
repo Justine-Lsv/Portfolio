@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Communication Language
+
+**IMPORTANT: Always communicate in French** - All responses, commit messages, and interactions must be in French.
+
 ## Project Overview
 
 Administrative portfolio website for Justine Lasvenes targeting administrative positions (HR, secretarial, support, management). The site must convey **professionalism, reliability, organization** with a sober, clear design.
@@ -64,6 +68,16 @@ Required sections in order:
 2. Generate semantic `index.html` with proper structure
 3. Apply Tailwind styling (mobile-first, sober palette)
 4. Verify accessibility and administrative coherence
+
+## Git Commit Rules
+
+**CRITICAL: Attribution Policy**
+
+- **NEVER include "Generated with [Claude Code]" in commit messages**
+- **NEVER include "Co-Authored-By: Claude" attribution in commits**
+- **NEVER add Claude or AI attribution to any commits**
+- Keep commit messages professional, factual, and concise
+- All commits must appear as if written by the repository owner
 
 ## Target Audience
 
