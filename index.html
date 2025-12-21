@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio professionnel de Justine Lasvenes - Gestionnaire RH et Professionnelle administrative">
+    <title>Justine Lasvenes - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Dark mode styles */
+        .dark {
+            color-scheme: dark;
+        }
+
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .dark .bg-white {
+            background-color: #1e293b !important;
+        }
+
+        .dark .bg-gray-50 {
+            background-color: #0f172a !important;
+        }
+
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+
+        .dark .text-gray-900 {
+            color: #f1f5f9 !important;
+        }
+
+        .dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+
+        .dark .text-gray-500 {
+            color: #64748b !important;
+        }
+
+        .dark .text-gray-400 {
+            color: #475569 !important;
+        }
+
+        .dark .bg-gradient-to-br.from-indigo-100 {
+            background: linear-gradient(to bottom right, #312e81 0%, #4c1d95 100%) !important;
+        }
+
+        .dark .bg-gradient-to-br.from-purple-100 {
+            background: linear-gradient(to bottom right, #4c1d95 0%, #831843 100%) !important;
+        }
+
+        .dark .bg-gradient-to-br.from-indigo-100.to-blue-100 {
+            background: linear-gradient(to bottom right, #1e3a8a 0%, #312e81 100%) !important;
+        }
+
+        .dark .shadow-lg,
+        .dark .shadow-md {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3) !important;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+        }
+
+        nav a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-line {
+            position: relative;
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+        }
+
+        /* Dark mode toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 100%);
+            color: #4c1d95;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 35px -5px rgb(0 0 0 / 0.4);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+    </style>
+    <script>
+        // Dark mode toggle logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+
+            if (isDark) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme on page load
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+
+            // Only apply dark mode if explicitly saved as 'dark'
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Landing Page -->
+    <section class="min-h-screen flex flex-col bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative">
+        <!-- Header with name and navigation -->
+        <header class="flex justify-between items-center px-8 md:px-16 py-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-indigo-600 logo-name">Justine<br>Lasvenes</h1>
+            <nav class="flex gap-4 md:gap-6 text-sm font-medium text-gray-700">
+                <a href="#profile" class="hover:text-indigo-600 transition">Profil</a>
+                <a href="#about" class="hover:text-indigo-600 transition">À propos</a>
+                <a href="#competences" class="hover:text-indigo-600 transition">Compétences</a>
+                <a href="#parcours" class="hover:text-indigo-600 transition">Parcours</a>
+                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+            </nav>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-indigo-600 rounded-full text-sm font-semibold text-white hover:bg-indigo-700 transition">
+                LinkedIn
+            </a>
+        </header>
+
+        <!-- Center content -->
+        <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8 text-gray-900">Justine Lasvenes</h2>
+
+            <div class="mb-12">
+                <p class="text-2xl md:text-3xl font-bold text-indigo-600 mb-2">Gestionnaire RH • Administration</p>
+                <p class="text-2xl md:text-3xl font-bold text-indigo-600">• Support Opérationnel •</p>
+            </div>
+
+            <a href="#contact" class="px-8 py-3 border-2 border-indigo-600 rounded-full text-sm font-semibold text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
+                Contactez-moi
+            </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="pb-8 flex flex-col items-center">
+            <p class="text-xs text-gray-600 mb-3">défilez en bas</p>
+            <a href="#profile" class="animate-bounce">
+                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Navigation Bar (sticky) -->
+    <nav class="sticky top-0 bg-white shadow-md z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-center gap-8 text-sm font-medium text-gray-700" aria-label="Navigation principale">
+                <a href="#profile" class="hover:text-indigo-600 transition">Profil</a>
+                <a href="#about" class="hover:text-indigo-600 transition">À propos</a>
+                <a href="#competences" class="hover:text-indigo-600 transition">Compétences</a>
+                <a href="#parcours" class="hover:text-indigo-600 transition">Parcours</a>
+                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Card Section -->
+    <section id="profile" class="bg-gray-50 py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 border-l-4 border-indigo-400">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Justine Lasvenes</h2>
+                    <p class="text-lg md:text-xl text-indigo-600 font-semibold">Gestionnaire RH & Professionnelle Administrative</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4 mb-6 text-sm text-gray-700">
+                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
+                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Étampes (91150)</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
+                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                        </svg>
+                        <span class="font-medium">24 ans</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
+                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
+                        </svg>
+                        <span class="font-medium">Permis B</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <a href="mailto:justinelasv@gmail.com" class="flex items-center justify-center gap-2 bg-indigo-50 px-4 py-3 rounded-lg hover:bg-indigo-100 transition">
+                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span class="font-medium text-gray-700">justinelasv@gmail.com</span>
+                    </a>
+                    <a href="tel:0695752063" class="flex items-center justify-center gap-2 bg-purple-50 px-4 py-3 rounded-lg hover:bg-purple-100 transition">
+                        <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span class="font-medium text-gray-700">06 95 75 20 63</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 card-hover border border-gray-200">
+            <h2 class="text-3xl font-bold mb-6 gradient-text">À propos de moi</h2>
+            <p class="text-lg text-gray-800 leading-relaxed">
+                Professionnelle administrative avec une expérience en gestion RH, secrétariat médical et accueil. À l'aise avec la dématérialisation des dossiers, la gestion de données et l'utilisation des outils bureautiques. Rigoureuse, discrète et orientée service public.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences" class="bg-white py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Mes Compétences</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:grid-rows-2" style="grid-template-rows: auto auto;">
+                <!-- Savoir-faire - spans both rows on the left -->
+                <div class="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl p-8 card-hover md:row-span-2 border border-indigo-200">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Savoir-faire</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Accueil physique et téléphonique</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Gestion et dématérialisation de dossiers</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Saisie et contrôle de données</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Gestion administrative RH</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Utilisation avancée d'Excel</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Pack Office, CPage, VS Code</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Gestion des stocks et inventaires</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Organisation et planification</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Classement et archivage</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800">Rédaction de documents administratifs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savoir-être - top right -->
+                <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 card-hover border border-purple-200">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Savoir-être</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Sens du service</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Discrétion</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Rigueur et organisation</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Esprit d'équipe</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Autonomie et polyvalence</p>
+                        </div>
+                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
+                            <p class="text-gray-800 font-medium">Ponctualité et fiabilité</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Langues - bottom right, smaller -->
+                <div class="bg-gradient-to-br from-indigo-100 to-blue-100 rounded-2xl p-6 card-hover border border-indigo-200">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Langues</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800"><span class="font-semibold">Français :</span> Courant</p>
+                        </div>
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-800"><span class="font-semibold">Anglais :</span> Niveau A2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="parcours" class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Mon Parcours</h2>
+
+        <div class="space-y-6">
+            <!-- Current position -->
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border-l-4 border-indigo-600 border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Gestionnaire RH</h3>
+                        <p class="text-indigo-600 font-semibold">EPS Barthélémy Durand</p>
+                    </div>
+                    <span class="inline-block bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mt-2 md:mt-0">
+                        Mai 2025 – Aujourd'hui
+                    </span>
+                </div>
+                <ul class="grid md:grid-cols-2 gap-3 text-gray-800">
+                    <li class="timeline-line pl-6">Gestion des accidents du travail</li>
+                    <li class="timeline-line pl-6">Suivi des CLM, CLD et temps partiel</li>
+                    <li class="timeline-line pl-6">Organisation des expertises et du Conseil Médical</li>
+                    <li class="timeline-line pl-6">Dématérialisation des dossiers du personnel</li>
+                    <li class="timeline-line pl-6">Saisie et mise à jour des données RH</li>
+                    <li class="timeline-line pl-6">Automatisation de données sous Excel</li>
+                </ul>
+            </article>
+
+            <!-- Previous experiences -->
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Secrétaire médicale</h3>
+                        <p class="text-gray-700 font-semibold">EPS Barthélémy Durand</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Janvier 2025 – Mai 2025</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Accueil physique des agents</li>
+                    <li class="timeline-line pl-6">Création et gestion des dossiers médicaux</li>
+                    <li class="timeline-line pl-6">Dématérialisation des dossiers médicaux hospitaliers</li>
+                </ul>
+            </article>
+
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Serveuse</h3>
+                        <p class="text-gray-700 font-semibold">Buffalo</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Juin 2024 – Septembre 2024</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Accueil et service client</li>
+                    <li class="timeline-line pl-6">Travail en équipe dans un environnement dynamique</li>
+                </ul>
+            </article>
+
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Assistante vétérinaire</h3>
+                        <p class="text-gray-700 font-semibold">Stages d'immersion</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Mars – Avril 2024 / Mai – Juin 2023</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Accueil des clients</li>
+                    <li class="timeline-line pl-6">Assistance administrative et organisationnelle</li>
+                </ul>
+            </article>
+
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Employée polyvalente</h3>
+                        <p class="text-gray-700 font-semibold">E.Leclerc</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Octobre 2022 – Avril 2023</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Conseil et vente de produits frais</li>
+                    <li class="timeline-line pl-6">Merchandising et gestion des stocks</li>
+                    <li class="timeline-line pl-6">Inventaires et rotation des produits</li>
+                    <li class="timeline-line pl-6">Entretien de l'espace de vente</li>
+                </ul>
+            </article>
+
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Responsable développement web</h3>
+                        <p class="text-gray-700 font-semibold">Stage (BTS SIO)</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Janvier – Février 2021</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Gestion et développement de projets web</li>
+                </ul>
+            </article>
+
+            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Saisonnière en agriculture</h3>
+                        <p class="text-gray-700 font-semibold">Job étudiant</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Novembre 2017 – Octobre 2023</span>
+                </div>
+                <ul class="space-y-2 text-gray-800">
+                    <li class="timeline-line pl-6">Travail saisonnier polyvalent</li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- Education -->
+        <div class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">Formation</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-indigo-100 to-white rounded-xl p-6 card-hover border-l-4 border-indigo-600 border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">BTS SIO option SLAM</h3>
+                    <p class="text-gray-700 font-medium">Lycée Geoffroy-Saint-Hilaire</p>
+                    <p class="text-sm text-indigo-700 font-semibold mt-2">2019–2021 • Obtenu</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-100 to-white rounded-xl p-6 card-hover border-l-4 border-purple-600 border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Bac STMG option SIG</h3>
+                    <p class="text-gray-700 font-medium">Lycée Geoffroy-Saint-Hilaire</p>
+                    <p class="text-sm text-purple-700 font-semibold mt-2">2017–2019 • Obtenu</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gradient-to-br from-indigo-100 to-purple-100 py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">Restons en contact</h2>
+            <p class="text-lg text-gray-700 mb-10">Vous avez un projet ou une opportunité ? N'hésitez pas à me contacter !</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="mailto:justinelasv@gmail.com" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-indigo-200">
+                    <svg class="w-8 h-8 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <p class="font-semibold text-gray-900">Email</p>
+                    <p class="text-sm text-gray-600 mt-1">justinelasv@gmail.com</p>
+                </a>
+
+                <a href="tel:0695752063" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-purple-200">
+                    <svg class="w-8 h-8 mx-auto mb-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    <p class="font-semibold text-gray-900">Téléphone</p>
+                    <p class="text-sm text-gray-600 mt-1">06 95 75 20 63</p>
+                </a>
+
+                <a href="https://justine-lsv.github.io/Portfolio/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-indigo-200">
+                    <svg class="w-8 h-8 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+                    </svg>
+                    <p class="font-semibold text-gray-900">Portfolio</p>
+                    <p class="text-sm text-gray-600 mt-1">Ancien portfolio</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-sm">© 2025 Justine Lasvenes - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button onclick="toggleTheme()" class="theme-toggle" aria-label="Basculer le mode sombre">
+        <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+        </svg>
+    </button>
+</body>
+</html>
