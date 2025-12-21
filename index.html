@@ -3,23 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio professionnel de Justine Lasvenes - Gestionnaire RH et Professionnelle administrative">
-    <title>Justine Lasvenes - Portfolio</title>
+    <meta name="description" content="Justine Lasvenes - Gestionnaire administrative et RH">
+    <title>Justine Lasvenes - Profil administratif</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .logo-name {
-            font-family: 'Playfair Display', serif;
+        .section-title {
+            border-left: 4px solid #6366f1;
+            padding-left: 1rem;
         }
 
-        /* Dark mode styles */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.15);
+        }
+
+        .copied-feedback {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .theme-toggle svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: white;
+        }
+
         .dark {
             color-scheme: dark;
         }
@@ -29,145 +89,131 @@
             color: #e2e8f0;
         }
 
-        .dark .bg-white {
-            background-color: #1e293b !important;
+        .dark .bg-gray-50 {
+            background-color: #1e293b;
         }
 
-        .dark .bg-gray-50 {
-            background-color: #0f172a !important;
+        .dark .bg-white {
+            background-color: #1e293b;
+            color: #e2e8f0;
         }
 
         .dark .text-gray-800 {
-            color: #e2e8f0 !important;
+            color: #e2e8f0;
         }
 
         .dark .text-gray-900 {
-            color: #f1f5f9 !important;
+            color: #f1f5f9;
         }
 
         .dark .text-gray-700 {
-            color: #cbd5e1 !important;
+            color: #cbd5e1;
         }
 
         .dark .text-gray-600 {
-            color: #94a3b8 !important;
+            color: #94a3b8;
         }
 
-        .dark .text-gray-500 {
-            color: #64748b !important;
+        .dark .border-indigo-100,
+        .dark .border-purple-100,
+        .dark .border-blue-100 {
+            border-color: #334155;
         }
 
-        .dark .text-gray-400 {
-            color: #475569 !important;
+        .dark .bg-gradient-to-br.from-blue-50 {
+            background: linear-gradient(to bottom right, #1e293b, #334155, #475569);
         }
 
-        .dark .bg-gradient-to-br.from-indigo-100 {
-            background: linear-gradient(to bottom right, #312e81 0%, #4c1d95 100%) !important;
+        .dark .bg-gradient-to-br.from-indigo-50 {
+            background: linear-gradient(to bottom right, #1e293b, #312e81, #1e293b);
         }
 
-        .dark .bg-gradient-to-br.from-purple-100 {
-            background: linear-gradient(to bottom right, #4c1d95 0%, #831843 100%) !important;
-        }
-
-        .dark .bg-gradient-to-br.from-indigo-100.to-blue-100 {
-            background: linear-gradient(to bottom right, #1e3a8a 0%, #312e81 100%) !important;
-        }
-
-        .dark .shadow-lg,
-        .dark .shadow-md {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3) !important;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        .dark .bg-gradient-to-br.from-purple-50 {
+            background: linear-gradient(to bottom right, #1e293b, #581c87, #1e293b);
         }
 
         .dark .card-hover:hover {
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.3);
         }
 
-        nav a {
-            position: relative;
-            transition: color 0.3s ease;
+        .dark .text-indigo-700 {
+            color: #a5b4fc;
         }
 
-        .timeline-line {
-            position: relative;
+        .dark .text-purple-700 {
+            color: #d8b4fe;
         }
 
-        .timeline-line::before {
-            content: '';
+        .dark .text-blue-700 {
+            color: #93c5fd;
+        }
+
+        .dark .text-blue-900 {
+            color: #93c5fd;
+        }
+
+        .dark .logo-background img.absolute {
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        }
+
+        /* Floating icons animation */
+        .floating-icon {
             position: absolute;
-            left: -17px;
-            top: 8px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+            opacity: 0.08;
+            pointer-events: none;
         }
 
-        /* Dark mode toggle button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 50;
-            background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 100%);
-            color: #4c1d95;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(8px, -12px) rotate(3deg); }
+            50% { transform: translate(-4px, -20px) rotate(-3deg); }
+            75% { transform: translate(12px, -8px) rotate(2deg); }
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 20px 35px -5px rgb(0 0 0 / 0.4);
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-12px, 15px) rotate(-5deg); }
+            66% { transform: translate(8px, 8px) rotate(5deg); }
         }
 
-        .theme-toggle svg {
-            width: 24px;
-            height: 24px;
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(15px, -8px) rotate(3deg); }
+            40% { transform: translate(-8px, -15px) rotate(-3deg); }
+            60% { transform: translate(12px, 12px) rotate(4deg); }
+            80% { transform: translate(-4px, 4px) rotate(-2deg); }
         }
-
     </style>
     <script>
-        // Dark mode toggle logic
+        function copyEmail() {
+            const email = 'justinelasv@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = document.createElement('div');
+                feedback.className = 'copied-feedback';
+                feedback.textContent = 'Email copié !';
+                document.body.appendChild(feedback);
+
+                setTimeout(() => {
+                    feedback.style.opacity = '0';
+                    feedback.style.transform = 'translateY(100px)';
+                    setTimeout(() => feedback.remove(), 300);
+                }, 2000);
+            });
+        }
+
         function toggleTheme() {
             const html = document.documentElement;
-            const isDark = html.classList.contains('dark');
+            html.classList.toggle('dark');
 
-            if (isDark) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
+            if (html.classList.contains('dark')) {
                 localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
             }
         }
 
-        // Initialize theme on page load
         (function() {
             const savedTheme = localStorage.getItem('theme');
-
-            // Only apply dark mode if explicitly saved as 'dark'
             if (savedTheme === 'dark') {
                 document.documentElement.classList.add('dark');
             }
@@ -176,40 +222,73 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
     <!-- Landing Page -->
-    <section class="min-h-screen flex flex-col bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative">
-        <!-- Header with name and navigation -->
-        <header class="flex justify-between items-center px-8 md:px-16 py-6">
-            <h1 class="text-2xl md:text-3xl font-bold text-indigo-600 logo-name">Justine<br>Lasvenes</h1>
-            <nav class="flex gap-4 md:gap-6 text-sm font-medium text-gray-700">
-                <a href="#profile" class="hover:text-indigo-600 transition">Profil</a>
-                <a href="#about" class="hover:text-indigo-600 transition">À propos</a>
-                <a href="#competences" class="hover:text-indigo-600 transition">Compétences</a>
-                <a href="#parcours" class="hover:text-indigo-600 transition">Parcours</a>
-                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
-            </nav>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-indigo-600 rounded-full text-sm font-semibold text-white hover:bg-indigo-700 transition">
-                LinkedIn
-            </a>
+    <section class="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        <!-- Floating background icons - sobres et administratifs -->
+        <!-- Dossier médical -->
+        <svg class="floating-icon w-12 h-12 text-indigo-500 top-24 left-16" style="animation: float1 22s ease-in-out infinite;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
+        </svg>
+
+        <!-- Calendrier -->
+        <svg class="floating-icon w-14 h-14 text-purple-500 top-1/3 right-20" style="animation: float2 18s ease-in-out infinite;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+        </svg>
+
+        <!-- Base de données -->
+        <svg class="floating-icon w-11 h-11 text-indigo-400 bottom-36 left-1/4" style="animation: float3 20s ease-in-out infinite;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1C8.14 1 5 2.34 5 4v3c0 1.66 3.14 3 7 3s7-1.34 7-3V4c0-1.66-3.14-3-7-3zm0 8c-3.86 0-7-1.34-7-3v3c0 1.66 3.14 3 7 3s7-1.34 7-3V6c0 1.66-3.14 3-7 3zm0 5c-3.86 0-7-1.34-7-3v3c0 1.66 3.14 3 7 3s7-1.34 7-3v-3c0 1.66-3.14 3-7 3zm0 5c-3.86 0-7-1.34-7-3v3c0 1.66 3.14 3 7 3s7-1.34 7-3v-3c0 1.66-3.14 3-7 3z"/>
+        </svg>
+
+        <!-- Graphique -->
+        <svg class="floating-icon w-12 h-12 text-blue-500 top-1/2 left-20" style="animation: float1 24s ease-in-out infinite 2s;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+        </svg>
+
+        <!-- Équipe -->
+        <svg class="floating-icon w-14 h-14 text-purple-400 bottom-28 right-1/3" style="animation: float2 19s ease-in-out infinite 3s;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
+
+        <!-- Horloge -->
+        <svg class="floating-icon w-11 h-11 text-indigo-400 top-40 right-1/4" style="animation: float3 21s ease-in-out infinite 1s;" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+        </svg>
+
+        <!-- Header avec navigation minimaliste -->
+        <header class="relative z-10 py-6">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex justify-center items-center">
+                    <nav class="flex gap-4 md:gap-6 text-sm font-medium text-gray-700">
+                        <a href="#profil" class="hover:text-indigo-700 transition">Profil</a>
+                        <a href="#competences" class="hover:text-indigo-700 transition">Compétences</a>
+                        <a href="#parcours" class="hover:text-indigo-700 transition">Parcours</a>
+                        <a href="#formation" class="hover:text-indigo-700 transition">Formation</a>
+                        <a href="#contact" class="hover:text-indigo-700 transition">Contact</a>
+                    </nav>
+                </div>
+            </div>
         </header>
 
-        <!-- Center content -->
-        <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
-            <h2 class="text-5xl md:text-7xl font-bold mb-8 text-gray-900">Justine Lasvenes</h2>
+        <!-- Contenu central -->
+        <div class="flex-1 flex flex-col items-center justify-center px-6 text-center max-w-4xl mx-auto relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-8 text-gray-900">Justine Lasvenes</h1>
 
             <div class="mb-12">
-                <p class="text-2xl md:text-3xl font-bold text-indigo-600 mb-2">Gestionnaire RH • Administration</p>
-                <p class="text-2xl md:text-3xl font-bold text-indigo-600">• Support Opérationnel •</p>
+                <p class="text-xl md:text-2xl font-semibold text-indigo-700 mb-3">Gestionnaire administrative et RH</p>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                    Professionnelle administrative avec une expérience en gestion des ressources humaines et en traitement de l'information médicale au sein d'un établissement public de santé
+                </p>
             </div>
 
-            <a href="#contact" class="px-8 py-3 border-2 border-indigo-600 rounded-full text-sm font-semibold text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
-                Contactez-moi
+            <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition shadow-md">
+                Me contacter
             </a>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="pb-8 flex flex-col items-center">
-            <p class="text-xs text-gray-600 mb-3">défilez en bas</p>
-            <a href="#profile" class="animate-bounce">
+        <!-- Indicateur de scroll -->
+        <div class="pb-8 flex flex-col items-center relative z-10">
+            <p class="text-xs text-gray-600 mb-3">Défiler pour en savoir plus</p>
+            <a href="#profil" class="animate-bounce">
                 <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                 </svg>
@@ -217,338 +296,311 @@
         </div>
     </section>
 
-    <!-- Navigation Bar (sticky) -->
-    <nav class="sticky top-0 bg-white shadow-md z-40">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-center gap-8 text-sm font-medium text-gray-700" aria-label="Navigation principale">
-                <a href="#profile" class="hover:text-indigo-600 transition">Profil</a>
-                <a href="#about" class="hover:text-indigo-600 transition">À propos</a>
-                <a href="#competences" class="hover:text-indigo-600 transition">Compétences</a>
-                <a href="#parcours" class="hover:text-indigo-600 transition">Parcours</a>
-                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+    <!-- Navigation sticky -->
+    <nav class="bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white sticky top-0 z-40 shadow-md backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 py-3">
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-medium">
+                <a href="#profil" class="hover:text-indigo-100 transition">Profil</a>
+                <a href="#competences" class="hover:text-indigo-100 transition">Compétences</a>
+                <a href="#parcours" class="hover:text-indigo-100 transition">Parcours</a>
+                <a href="#formation" class="hover:text-indigo-100 transition">Formation</a>
+                <a href="#contact" class="hover:text-indigo-100 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Profile Card Section -->
-    <section id="profile" class="bg-gray-50 py-16">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 border-l-4 border-indigo-400">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Justine Lasvenes</h2>
-                    <p class="text-lg md:text-xl text-indigo-600 font-semibold">Gestionnaire RH & Professionnelle Administrative</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-4 mb-6 text-sm text-gray-700">
-                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
-                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="font-medium">Étampes (91150)</span>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
-                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-                        </svg>
-                        <span class="font-medium">24 ans</span>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 bg-gray-50 px-4 py-3 rounded-lg">
-                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
-                        </svg>
-                        <span class="font-medium">Permis B</span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-4 text-sm">
-                    <a href="mailto:justinelasv@gmail.com" class="flex items-center justify-center gap-2 bg-indigo-50 px-4 py-3 rounded-lg hover:bg-indigo-100 transition">
-                        <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                        </svg>
-                        <span class="font-medium text-gray-700">justinelasv@gmail.com</span>
-                    </a>
-                    <a href="tel:0695752063" class="flex items-center justify-center gap-2 bg-purple-50 px-4 py-3 rounded-lg hover:bg-purple-100 transition">
-                        <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                        </svg>
-                        <span class="font-medium text-gray-700">06 95 75 20 63</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-16">
-        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 card-hover border border-gray-200">
-            <h2 class="text-3xl font-bold mb-6 gradient-text">À propos de moi</h2>
-            <p class="text-lg text-gray-800 leading-relaxed">
-                Professionnelle administrative avec une expérience en gestion RH, secrétariat médical et accueil. À l'aise avec la dématérialisation des dossiers, la gestion de données et l'utilisation des outils bureautiques. Rigoureuse, discrète et orientée service public.
+    <!-- Section Profil -->
+    <section id="profil" class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 section-title">Profil professionnel</h2>
+        <div class="bg-white rounded-xl shadow-sm border border-indigo-100 p-8 card-hover">
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                Professionnelle administrative ayant exercé au sein d'un établissement public de santé, avec une progression de poste reflétant une capacité d'adaptation et une montée en responsabilités dans le domaine de la gestion RH et de l'information médicale.
+            </p>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                Familiarisée avec les exigences du service public hospitalier : respect de la confidentialité, rigueur dans le traitement des dossiers, collaboration avec les équipes RH et médicales, et souci constant de la qualité des données traitées.
+            </p>
+            <p class="text-base text-gray-800 leading-relaxed">
+                Dotée d'une formation initiale en systèmes d'information de gestion, cette base technique facilite la compréhension des outils métiers, la structuration de l'information et l'utilisation avancée d'Excel pour l'exploitation de données RH.
             </p>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="competences" class="bg-white py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Mes Compétences</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:grid-rows-2" style="grid-template-rows: auto auto;">
-                <!-- Savoir-faire - spans both rows on the left -->
-                <div class="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl p-8 card-hover md:row-span-2 border border-indigo-200">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Savoir-faire</h3>
-                    <div class="space-y-3">
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Accueil physique et téléphonique</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Gestion et dématérialisation de dossiers</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Saisie et contrôle de données</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Gestion administrative RH</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Utilisation avancée d'Excel</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Pack Office, CPage, VS Code</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Gestion des stocks et inventaires</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Organisation et planification</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Classement et archivage</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800">Rédaction de documents administratifs</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Savoir-être - top right -->
-                <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 card-hover border border-purple-200">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Savoir-être</h3>
-                    <div class="space-y-3">
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Sens du service</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Discrétion</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Rigueur et organisation</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Esprit d'équipe</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Autonomie et polyvalence</p>
-                        </div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm text-center border border-gray-200">
-                            <p class="text-gray-800 font-medium">Ponctualité et fiabilité</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Langues - bottom right, smaller -->
-                <div class="bg-gradient-to-br from-indigo-100 to-blue-100 rounded-2xl p-6 card-hover border border-indigo-200">
-                    <h3 class="text-xl font-bold mb-4 text-gray-900">Langues</h3>
-                    <div class="space-y-3">
-                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800"><span class="font-semibold">Français :</span> Courant</p>
-                        </div>
-                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-800"><span class="font-semibold">Anglais :</span> Niveau A2</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="parcours" class="max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Mon Parcours</h2>
-
-        <div class="space-y-6">
-            <!-- Current position -->
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border-l-4 border-indigo-600 border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Gestionnaire RH</h3>
-                        <p class="text-indigo-600 font-semibold">EPS Barthélémy Durand</p>
-                    </div>
-                    <span class="inline-block bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mt-2 md:mt-0">
-                        Mai 2025 – Aujourd'hui
-                    </span>
-                </div>
-                <ul class="grid md:grid-cols-2 gap-3 text-gray-800">
-                    <li class="timeline-line pl-6">Gestion des accidents du travail</li>
-                    <li class="timeline-line pl-6">Suivi des CLM, CLD et temps partiel</li>
-                    <li class="timeline-line pl-6">Organisation des expertises et du Conseil Médical</li>
-                    <li class="timeline-line pl-6">Dématérialisation des dossiers du personnel</li>
-                    <li class="timeline-line pl-6">Saisie et mise à jour des données RH</li>
-                    <li class="timeline-line pl-6">Automatisation de données sous Excel</li>
-                </ul>
-            </article>
-
-            <!-- Previous experiences -->
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Secrétaire médicale</h3>
-                        <p class="text-gray-700 font-semibold">EPS Barthélémy Durand</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Janvier 2025 – Mai 2025</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Accueil physique des agents</li>
-                    <li class="timeline-line pl-6">Création et gestion des dossiers médicaux</li>
-                    <li class="timeline-line pl-6">Dématérialisation des dossiers médicaux hospitaliers</li>
-                </ul>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Serveuse</h3>
-                        <p class="text-gray-700 font-semibold">Buffalo</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Juin 2024 – Septembre 2024</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Accueil et service client</li>
-                    <li class="timeline-line pl-6">Travail en équipe dans un environnement dynamique</li>
-                </ul>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Assistante vétérinaire</h3>
-                        <p class="text-gray-700 font-semibold">Stages d'immersion</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Mars – Avril 2024 / Mai – Juin 2023</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Accueil des clients</li>
-                    <li class="timeline-line pl-6">Assistance administrative et organisationnelle</li>
-                </ul>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Employée polyvalente</h3>
-                        <p class="text-gray-700 font-semibold">E.Leclerc</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Octobre 2022 – Avril 2023</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Conseil et vente de produits frais</li>
-                    <li class="timeline-line pl-6">Merchandising et gestion des stocks</li>
-                    <li class="timeline-line pl-6">Inventaires et rotation des produits</li>
-                    <li class="timeline-line pl-6">Entretien de l'espace de vente</li>
-                </ul>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Responsable développement web</h3>
-                        <p class="text-gray-700 font-semibold">Stage (BTS SIO)</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Janvier – Février 2021</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Gestion et développement de projets web</li>
-                </ul>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-gray-200">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Saisonnière en agriculture</h3>
-                        <p class="text-gray-700 font-semibold">Job étudiant</p>
-                    </div>
-                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0">Novembre 2017 – Octobre 2023</span>
-                </div>
-                <ul class="space-y-2 text-gray-800">
-                    <li class="timeline-line pl-6">Travail saisonnier polyvalent</li>
-                </ul>
-            </article>
-        </div>
-
-        <!-- Education -->
-        <div class="mt-16">
-            <h2 class="text-3xl font-bold mb-8 gradient-text">Formation</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-gradient-to-br from-indigo-100 to-white rounded-xl p-6 card-hover border-l-4 border-indigo-600 border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">BTS SIO option SLAM</h3>
-                    <p class="text-gray-700 font-medium">Lycée Geoffroy-Saint-Hilaire</p>
-                    <p class="text-sm text-indigo-700 font-semibold mt-2">2019–2021 • Obtenu</p>
-                </div>
-                <div class="bg-gradient-to-br from-purple-100 to-white rounded-xl p-6 card-hover border-l-4 border-purple-600 border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Bac STMG option SIG</h3>
-                    <p class="text-gray-700 font-medium">Lycée Geoffroy-Saint-Hilaire</p>
-                    <p class="text-sm text-purple-700 font-semibold mt-2">2017–2019 • Obtenu</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-gradient-to-br from-indigo-100 to-purple-100 py-16">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">Restons en contact</h2>
-            <p class="text-lg text-gray-700 mb-10">Vous avez un projet ou une opportunité ? N'hésitez pas à me contacter !</p>
+    <!-- Section Compétences -->
+    <section id="competences" class="bg-white py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 section-title">Compétences administratives et techniques</h2>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="mailto:justinelasv@gmail.com" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-indigo-200">
+                <!-- Gestion administrative RH -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-6 card-hover">
+                    <h3 class="text-base font-bold text-indigo-700 mb-4 flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                        </svg>
+                        Gestion administrative RH
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Suivi des accidents du travail et arrêts longue durée</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Organisation d'expertises et préparation de dossiers médicaux</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Création, mise à jour et dématérialisation de dossiers</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Collaboration avec les équipes RH et médicales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Traitement de l'information -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100 rounded-xl p-6 card-hover">
+                    <h3 class="text-base font-bold text-purple-700 mb-4 flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z"/>
+                            <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z"/>
+                            <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z"/>
+                        </svg>
+                        Traitement de l'information
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Saisie et contrôle de données dans les systèmes d'information</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Vérification de la cohérence et de l'exhaustivité</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Exploitation avancée d'Excel : tableaux croisés, formules, automatisation</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Respect des procédures institutionnelles et des délais</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Qualités professionnelles -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 card-hover">
+                    <h3 class="text-base font-bold text-blue-700 mb-4 flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Qualités professionnelles
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Rigueur et sens de l'organisation</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Respect de la confidentialité et du secret professionnel</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Fiabilité et continuité de service</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Autonomie et capacité d'adaptation</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Sens du service public</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-700 flex-shrink-0">•</span>
+                            <span>Ponctualité et assiduité</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Parcours professionnel -->
+    <section id="parcours" class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 section-title">Parcours professionnel</h2>
+
+        <div class="space-y-6">
+            <!-- Gestionnaire RH -->
+            <article class="bg-white rounded-xl shadow-sm border border-indigo-100 p-6 card-hover relative overflow-hidden logo-background">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Gestionnaire RH</h3>
+                        <p class="text-blue-900 font-semibold">EPS Barthélémy Durand — Établissement Public de Santé</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0 whitespace-nowrap">Mai 2025 – Janvier 2026</span>
+                </div>
+                <p class="text-sm text-gray-700 italic mb-3">
+                    Évolution vers un poste de gestion RH au sein du même établissement, après avoir assuré des responsabilités en secrétariat médical. Intégration au service des ressources humaines pour assurer le suivi administratif des agents.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Gestion et suivi administratif des accidents du travail pour l'ensemble du personnel (titulaires et contractuels)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Suivi des arrêts de longue durée (CLM, CLD) et des aménagements de poste (temps partiel thérapeutique)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Organisation des expertises médicales et préparation des dossiers pour les instances (Conseil Médical)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Dématérialisation et classement systématique des dossiers administratifs du personnel</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Saisie et mise à jour rigoureuse des données dans le système d'information RH (logiciel métier)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Exploitation de données sous Excel : création de tableaux de suivi, détection d'anomalies, automatisation de tâches récurrentes</span>
+                    </li>
+                </ul>
+                <img src="items/bd.png" alt="Logo EPS Barthélémy Durand" class="absolute bottom-4 right-4 w-16 h-16 object-contain opacity-20">
+            </article>
+
+            <!-- Secrétaire médicale -->
+            <article class="bg-white rounded-xl shadow-sm border border-indigo-100 p-6 card-hover relative overflow-hidden logo-background">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Secrétaire médicale</h3>
+                        <p class="text-blue-900 font-semibold">EPS Barthélémy Durand</p>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium mt-2 md:mt-0 whitespace-nowrap">Janvier 2025 – Mai 2025</span>
+                </div>
+                <p class="text-sm text-gray-700 italic mb-3">
+                    Poste d'accueil et de gestion administrative au service médical de l'établissement, assurant la continuité de service et la confidentialité du traitement des dossiers médicaux.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Accueil et orientation des agents dans un cadre médical nécessitant discrétion et bienveillance</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Création et gestion de dossiers médicaux selon les protocoles institutionnels</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-700 flex-shrink-0">▸</span>
+                        <span>Dématérialisation et archivage systématique des dossiers médicaux hospitaliers</span>
+                    </li>
+                </ul>
+                <img src="items/bd.png" alt="Logo EPS Barthélémy Durand" class="absolute bottom-4 right-4 w-16 h-16 object-contain opacity-20">
+            </article>
+
+            <!-- Expériences complémentaires -->
+            <article class="bg-white rounded-xl shadow-sm border border-indigo-100 p-6 card-hover">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Expériences complémentaires</h3>
+                <p class="text-sm text-gray-700 mb-4">
+                    Parcours diversifié combinant service client, rigueur organisationnelle et responsabilités opérationnelles dans différents secteurs, développant polyvalence et capacité d'adaptation.
+                </p>
+                <ul class="space-y-3 text-sm text-gray-700">
+                    <li>
+                        <strong>Serveuse — Buffalo</strong> (Juin – Sept. 2024) : Service en environnement dynamique, gestion de flux, travail d'équipe sous contrainte de temps
+                    </li>
+                    <li>
+                        <strong>Assistante vétérinaire — Stages d'immersion</strong> (2023-2024) : Accueil, assistance administrative, rigueur dans le respect des procédures
+                    </li>
+                    <li>
+                        <strong>Employée polyvalente — E.Leclerc</strong> (Oct. 2022 – Avril 2023) : Gestion de stocks, inventaires, traçabilité, organisation méthodique
+                    </li>
+                    <li>
+                        <strong>Responsable développement web — Stage BTS SIO</strong> (Janv. – Fév. 2021) : Gestion de projets, planification et suivi méthodique
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Formation -->
+    <section id="formation" class="bg-white py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 section-title">Formation</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 rounded-xl p-6 card-hover">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">BTS Services Informatiques aux Organisations</h3>
+                    <p class="text-blue-900 font-semibold mb-1">Option Solutions Logicielles et Applications Métiers (SLAM)</p>
+                    <p class="text-sm text-gray-600 mb-3">Lycée Geoffroy-Saint-Hilaire • 2019–2021 • Obtenu</p>
+                    <p class="text-sm text-gray-700">
+                        Formation technique permettant la compréhension des systèmes d'information, la structuration de bases de données et la logique de traitement des données. Ces compétences facilitent l'appropriation des logiciels métiers et l'exploitation avancée d'outils bureautiques.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-xl p-6 card-hover">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Baccalauréat STMG</h3>
+                    <p class="text-blue-900 font-semibold mb-1">Option Systèmes d'Information de Gestion (SIG)</p>
+                    <p class="text-sm text-gray-600 mb-3">Lycée Geoffroy-Saint-Hilaire • 2017–2019 • Obtenu</p>
+                    <p class="text-sm text-gray-700">
+                        Formation orientée gestion et organisation, apportant une base solide en management, processus administratifs et cadre juridique des organisations. Connaissance du fonctionnement institutionnel et des circuits d'information.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 section-title">Contact</h2>
+
+        <div class="bg-white rounded-xl shadow-sm border border-indigo-100 p-8">
+            <p class="text-base text-gray-800 leading-relaxed mb-6 text-center">
+                Disponible pour échanger sur les opportunités dans les fonctions administratives, RH ou en lien avec l'information médicale.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-indigo-100 rounded-xl p-6 text-center card-hover">
                     <svg class="w-8 h-8 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                     </svg>
-                    <p class="font-semibold text-gray-900">Email</p>
-                    <p class="text-sm text-gray-600 mt-1">justinelasv@gmail.com</p>
-                </a>
+                    <p class="font-semibold text-gray-900 mb-1">Email</p>
+                    <p class="text-sm text-indigo-700 cursor-pointer hover:text-indigo-900 transition" onclick="copyEmail()">justinelasv@gmail.com</p>
+                </div>
 
-                <a href="tel:0695752063" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-purple-200">
-                    <svg class="w-8 h-8 mx-auto mb-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                <div class="bg-white border border-indigo-100 rounded-xl p-6 text-center card-hover">
+                    <svg class="w-8 h-8 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
-                    <p class="font-semibold text-gray-900">Téléphone</p>
-                    <p class="text-sm text-gray-600 mt-1">06 95 75 20 63</p>
-                </a>
+                    <p class="font-semibold text-gray-900 mb-1">Téléphone</p>
+                    <p class="text-sm text-gray-700">06 95 75 20 63</p>
+                </div>
 
-                <a href="https://justine-lsv.github.io/Portfolio/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition card-hover border border-indigo-200">
+                <div class="bg-white border border-indigo-100 rounded-xl p-6 text-center card-hover">
                     <svg class="w-8 h-8 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"/>
                     </svg>
-                    <p class="font-semibold text-gray-900">Portfolio</p>
-                    <p class="text-sm text-gray-600 mt-1">Ancien portfolio</p>
-                </a>
+                    <p class="font-semibold text-gray-900 mb-2">CV</p>
+                    <a href="items/CV.pdf" download class="text-sm text-indigo-700 hover:underline">Télécharger le CV</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-sm">© 2025 Justine Lasvenes - Tous droits réservés</p>
+    <footer class="bg-gray-900 text-gray-400 py-6">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-sm">© 2025 Justine Lasvenes</p>
         </div>
     </footer>
 
-    <!-- Dark Mode Toggle Button -->
+    <!-- Bouton Dark Mode -->
     <button onclick="toggleTheme()" class="theme-toggle" aria-label="Basculer le mode sombre">
         <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
